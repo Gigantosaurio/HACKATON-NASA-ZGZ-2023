@@ -1,5 +1,5 @@
 #import openai
-#openai.api_key = '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'
+#openai.api_key = ''
 chatgpt = input("Escribe puto: ...")
 response = openai.ChatCompletion.create( #Los dos parametros son el modelo y el mensaje
     model="gpt-3.5-turbo",
