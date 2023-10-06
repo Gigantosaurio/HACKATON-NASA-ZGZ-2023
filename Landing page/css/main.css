@@ -1,0 +1,66 @@
+/* styles.css */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent; /* Establece el color de la barra de desplazamiento */
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #4CAF50, #3498db);
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent; 
+}
+
+#popup {
+    width: 300px; /* Ancho inicial del contenedor "popup" */
+    text-align: center;
+    padding: 10px; /* Agrega un poco de espacio interno */
+    border: 1px solid #ccc;
+    margin: 20px auto; /* Centra el "popup" horizontalmente en la página */
+    max-height: 300px; /* Altura máxima permitida antes de que se active el desplazamiento vertical */
+    overflow-y: auto; /* Activa el desplazamiento vertical cuando se alcanza la altura máxima */
+    background-color: white;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent; /* Establece el color de la barra de desplazamiento */
+}
+
+
+
+
+
+.card1 {
+    width: 50%; 
+    height: 30px;
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho */
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent; 
+}
+#contenedorBoton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent; /* Establece el color de la barra de desplazamiento */
+    -webkit-overflow-scrolling: unset;
+    overflow-y: hidden;
+}
+
+
+
+
