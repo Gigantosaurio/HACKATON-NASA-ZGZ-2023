@@ -8,19 +8,20 @@ CORS(app)
 def manejar_solicitud():
     if request.method == 'GET':
         parametro = request.args.get('test')
-        # Realiza alguna lógica con el parámetro
-        if parametro == 'test':
-            resultado = 'ok'
-        else:
-            resultado = 'no ok'
-    elif request.method == 'POST':
-        parametro = request.form.get('test')
-        # Realiza alguna lógica con el parámetro
-        resultado = f'Obtuviste el valor POST: {parametro}'
-        print(f'Obtuviste el valor POST: {parametro}')
-
-    # Devuelve una respuesta en formato JSON
+        resultado = test(parametro)
+    elif request.method == 'POST':           #        .args.                     ---> como esta ahora
+        parametro = request.args.get('test') # request.form.get('test') no se que hace exactamente :)
+        resultado = test(parametro)
     return jsonify({'resultado': resultado})
 
 if __name__ == '__main__':
     app.run()
+
+
+def test(parametro):
+    if parametro == 'test':
+        resultado = 'ok'
+        return resultado
+    else:
+        resultado = 'no ok'
+        return resultado
