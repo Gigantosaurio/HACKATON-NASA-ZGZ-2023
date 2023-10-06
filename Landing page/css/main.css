@@ -12,6 +12,9 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: relative; /* Establece la posición del contenedor como relativa */
+    
+
 }
 
 .planet {
@@ -97,4 +100,23 @@ body {
     /* Fondo blanco */
     color: #000000;
     /* Color de texto negro */
+}
+.alien-image {
+    position: absolute; /* Establece la posición de la imagen como absoluta */
+    bottom: 0; /* Coloca la imagen en la parte inferior */
+    right: 0; /* Coloca la imagen en la parte derecha */
+    width: 10%;
+    height: 20%;
+    margin-bottom: 30px;
+}
+
+#text2 {
+    text-align: right; /* Alinea el texto a la derecha */
+    position: fixed ; /* Establece la posición del texto como absoluta */
+    bottom: 0; /* Coloca el texto en la parte inferior */
+    right: 0; /* Coloca el texto en la parte derecha */
+    color: #FFF; /* Color de texto blanco */
+    font-size: 18px; /* Tamaño de fuente */
+    margin-right: 140px;
+    margin-bottom: 55px;
 }
