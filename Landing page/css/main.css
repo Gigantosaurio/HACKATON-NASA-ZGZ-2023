@@ -1,7 +1,33 @@
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(90deg, #000 41.73%, #4C0909 100.6%);
 }
 
 #container {
+    width: 95vw;
+    height: 97vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 8vw;
+}
+
+.planet {
+    transform: rotate(13.257deg);
+    flex-shrink: 0;
+}
+
+.text {}
+
+.titulo {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 130px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
 
 }
