@@ -1,6 +1,3 @@
-// Obtén una referencia al elemento <select> y al elemento donde mostrarás el planeta seleccionado.
-const selectPlaneta = document.getElementById("vivir");
-const planetaSeleccionado = document.getElementById("planetaSeleccionado");
 
 const input = document.querySelector('#fetch')
 const conver = document.querySelector('.conversacion')
@@ -15,10 +12,8 @@ selectPlaneta.addEventListener("change", function () {
   const planeta = selectPlaneta.options[selectPlaneta.selectedIndex].value;
   // Actualiza el texto en el elemento donde mostrarás el planeta seleccionado.
   planetaSeleccionado.textContent = planeta;
-
-  // Actualiza la URL de la API con el planeta seleccionado.
-  const url = "https://planets-17f2.onrender.com/planets/getPlanet?name=" + planeta;
-
+const planet = 'Venus';
+const apiUrl = `https://planets-17f2.onrender.com/planets/getPlanet?name=${planet}`;
   // Realiza la solicitud fetch con la URL actualizada.
   fetch(url)
     .then((response) => response.json())
@@ -64,3 +59,52 @@ async function showData(){
   conver.innerHTML += ia
 
 }
+
+function getApi(url) {
+    fetch(url)
+        .then(res => res.json())
+        .then(jsonDelBack => {
+            console.log(jsonDelBack);
+            showInfo(jsonDelBack);
+        })
+}
+
+const container = document.getElementById("container");
+const descripcion = document.getElementsByClassName("descripcion");
+const nombrePlaneta = document.getElementsByClassName("titulo");
+
+function cerrarDivTitulo(){
+    container.remove();
+}
+
+function showInfo(json) {
+    const nuevoDiv = document.createElement('div');
+    container.innerHTML = ``;
+    nuevoDiv.classList.add('container');
+    const nombre = json.name;
+    const distancia = json.distanceFromSun;
+    const descripcion = json.description;
+    const lunas = json.numberOfMoons;
+    const nombreSignificado = json.namesake;
+    
+    nuevoDiv.innerHTML = `
+    
+    <button class="cerrar" onclick="cerrarDivTitulo()">&#10006;</button>
+    <div class="titulo">
+    ${nombre}
+    
+    </div>
+    <div class="descripcion">
+    Distancia del Sol: ${distancia}.<br>
+    <br>
+    Descripcion: ${descripcion}<br>
+    <br>
+    Numero de lunas: ${lunas}.<br>
+    <br>
+    Significado del nombre: ${nombreSignificado}.<br>
+    </div>`;
+    
+    container.appendChild(nuevoDiv);
+}
+
+getApi(apiUrl);
