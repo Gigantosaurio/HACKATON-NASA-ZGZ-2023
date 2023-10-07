@@ -7,27 +7,25 @@ body {
 }
 
 #container {
+
     background-color: rgba(255, 255, 255, 0.664);
     backdrop-filter: blur(5px);
     height: 94vh;
     width: 30vw;
     border-radius: 15px;
     background-color: transparent;
-    /* Fondo transparente */
     border: 3px solid #ffffff;
-    /* Bordes blancos */
     border-radius: 20px;
-    /* Bordes redondeados */
     font-size: 16px;
+    display: flex;
+    margin-top: 1.5vh;
 }
 
 .titulo {
-    height: 11vh;
+    height: 5vh;
     background-color: #ffffff;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
     text-align: center;
-    padding-top: 3vh;
+    padding-bottom: 5vh;
     font-size: 7vh;
     color: black;
     font-weight: 1000;
@@ -35,7 +33,11 @@ body {
 
 
 .cerrar {
-    background: transparent;
+    padding-top: 1vh;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #ffffff;
     border: none;
     color: #000000;
     font-size: 20px;
@@ -47,7 +49,7 @@ body {
     outline: none;
 }
 
-.descripcion{
+.descripcion {
     background-color: transparent;
     height: 83.4%;
     border-bottom-right-radius: 15px;
@@ -55,4 +57,15 @@ body {
     padding: 5%;
     font-size: 2.5vh;
     color: white;
+}
+
+.planetario {
+    background-color: #ffffff;
+    height: 20px;
+    width: 20px;
+
+}
+
+.planetario1{
+    
 }
