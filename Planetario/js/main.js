@@ -16,6 +16,10 @@ const container = document.getElementById("container");
 const descripcion = document.getElementsByClassName("descripcion");
 const nombrePlaneta = document.getElementsByClassName("titulo");
 
+function cerrarDivTitulo(){
+    container.remove();
+}
+
 function showInfo(json) {
     const nuevoDiv = document.createElement('div');
     container.innerHTML = ``;
@@ -27,6 +31,8 @@ function showInfo(json) {
     const nombreSignificado = json.namesake;
     
     nuevoDiv.innerHTML = `
+    
+    <button class="cerrar" onclick="cerrarDivTitulo()">&#10006;</button>
     <div class="titulo">
     ${nombre}
     
