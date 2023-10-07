@@ -12,14 +12,10 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    position: relative; /* Establece la posición del contenedor como relativa */
-    
-
 }
 
 .planet {
     transform: rotate(13.257deg);
-
     height: 100%;
     width: 35%;
     padding-top: 40vh;
@@ -120,3 +116,136 @@ body {
     margin-right: 140px;
     margin-bottom: 55px;
 }
+
+
+
+/* Estilo de la barra de desplazamiento vertical */
+.conversacion::-webkit-scrollbar {
+    width: 4px; /* Ancho de la barra de desplazamiento */
+    margin-left: 10px;
+}
+  
+  .conversacion::-webkit-scrollbar-thumb {
+    background-color: #007bff; /* Color del "pulgar" de la barra de desplazamiento (la parte que se arrastra) */
+    border-radius: 6px; /* Bordes redondeados del "pulgar" */
+  }
+  
+  .conversacion::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color de fondo de la barra de desplazamiento */
+  }
+  
+  /* Estilo de la barra de desplazamiento horizontal (si es necesario) */
+  .conversacion::-webkit-scrollbar-horizontal {
+    height: 12px; /* Altura de la barra de desplazamiento horizontal */
+  }
+  
+  /* Estilo del "pulgar" de la barra de desplazamiento horizontal */
+  .conversacion::-webkit-scrollbar-thumb:horizontal {
+    background-color: #007bff; /* Color del "pulgar" de la barra de desplazamiento horizontal */
+  }
+  
+  /* Estilo del fondo de la barra de desplazamiento horizontal */
+  .conversacion::-webkit-scrollbar-track:horizontal {
+    background-color: #f1f1f1; /* Color de fondo de la barra de desplazamiento horizontal */
+  }
+  
+
+.content{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.caja{
+    position: absolute;
+    width: 20vw;
+    height: 70vh;
+    background-color: rgba(208, 190, 190, 0.678);
+    border-radius: 25px;
+    display: flex;
+    backdrop-filter: blur(10px);
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 20px;
+    left: 900px;
+    top: 30px;
+    visibility: hidden;
+}
+
+.conversacion{
+    height: 80%;
+    margin-bottom: 25px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}
+
+#fetch{
+    padding: 10px; /* Espaciado interno */
+    border: 2px solid #ccc; /* Borde con color gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 90%;
+    height: 10px;
+    font-size: 16px;
+}
+
+#fetch:focus {
+    outline: none; /* Quita el resaltado por defecto del foco */
+    border-color: #007bff; /* Cambia el color del borde al azul cuando está enfocado */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Agrega una sombra sutil alrededor del input cuando está enfocado */
+}
+
+#btn {
+    padding: 10px 20px; /* Espaciado interno (10px arriba/abajo, 20px izquierda/derecha) */
+    background-color: #007bff; /* Color de fondo azul */
+    color: #fff; /* Color de texto blanco */
+    border: none; /* Quita el borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al estilo de un dedo al pasar sobre el botón */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+  }
+  
+  /* Estilo cuando el botón está en hover (pasando el cursor por encima) */
+  #btn:hover {
+    background-color: #0056b3; /* Cambia el color de fondo a un tono más oscuro cuando está en hover */
+  }
+  
+  
+  .ia{
+    width: 75%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .usuario{
+    width: 75%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color: #007bff;
+    border-radius: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 18%;
+  }
+
+  .ia h5{
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  .usuario h5{
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  

@@ -2,6 +2,13 @@
 const selectPlaneta = document.getElementById("vivir");
 const planetaSeleccionado = document.getElementById("planetaSeleccionado");
 
+const input = document.querySelector('#fetch')
+const conver = document.querySelector('.conversacion')
+
+const asistente = document.querySelector('.caja')
+
+let toggler = 1;
+
 // Agrega un evento 'change' al elemento <select> para detectar cuando cambia la selección.
 selectPlaneta.addEventListener("change", function () {
   // Obtiene el valor seleccionado del <select>.
@@ -19,35 +26,41 @@ selectPlaneta.addEventListener("change", function () {
       console.log(json);
     });
 });
-function mostrarPopup(contenidoHTML) {
-  // Crea un elemento div para el popup
-  const popup = document.createElement("div");
-  popup.className = "popup";
-
-  // Agrega el contenido HTML al popup
-  popup.innerHTML = contenidoHTML;
-
-  // Agrega el popup al cuerpo del documento
-  document.body.appendChild(popup);
-
-  // Agrega un evento de clic al popup para cerrarlo al hacer clic en cualquier parte del mismo
-  popup.addEventListener("click", function () {
-      cerrarPopup(popup);
-  });
+function mostrarPopup() {
+  if(toggler == 1){
+    toggler = 0
+    asistente.style.visibility = "visible"
+  }else{
+    toggler = 1
+    asistente.style.visibility = "hidden";
+  }
 }
 
-function cerrarPopup(popup) {
-  // Elimina el popup del DOM
-  document.body.removeChild(popup);
+async function apiCall(){
+  const respuesta = await fetch(`http://127.0.0.1:5000/api?pregunta=${input.value}`, {method: 'POST',headers: {'Content-Type': 'application/json'}})
+  const data = await respuesta.json()
+  return data
 }
 
-// Ejemplo de uso:
-const contenidoHTML = `
-  <div class="popup-content">
-      <p>Este es un mensaje en el popup.</p>
-      <button onclick="cerrarPopup(this.parentElement.parentElement)">Cerrar</button>
-  </div>
-`;
+async function showData(){
+  const resp = await apiCall()
+  console.log(resp)
+  let ia = 
+  `
+      <div class="ia">
+          <h5>Virtual Assistant</h5>
+          <p>${resp.resultado}</p>
+      </div>
+  `
+  let usuario = 
+  `
+      <div class="usuario">
+          <h5>Me</h5>
+          <p>${input.value}</p>
+      </div>
+  `
 
-// Llama a la función mostrarPopup con el contenido HTML que deseas mostrar en el popup
-mostrarPopup(contenidoHTML);
+  conver.innerHTML += usuario
+  conver.innerHTML += ia
+
+}
