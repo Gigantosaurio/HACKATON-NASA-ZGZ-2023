@@ -1,53 +1,54 @@
-// Obtén una referencia al elemento <select> y al elemento donde mostrarás el planeta seleccionado.
-const selectPlaneta = document.getElementById("vivir");
-const planetaSeleccionado = document.getElementById("planetaSeleccionado");
 
-// Agrega un evento 'change' al elemento <select> para detectar cuando cambia la selección.
-selectPlaneta.addEventListener("change", function () {
-  // Obtiene el valor seleccionado del <select>.
-  const planeta = selectPlaneta.options[selectPlaneta.selectedIndex].value;
-  // Actualiza el texto en el elemento donde mostrarás el planeta seleccionado.
-  planetaSeleccionado.textContent = planeta;
+const planet = 'Venus';
+const apiUrl = `https://planets-17f2.onrender.com/planets/getPlanet?name=${planet}`;
 
-  // Actualiza la URL de la API con el planeta seleccionado.
-  const url = "https://planets-17f2.onrender.com/planets/getPlanet?name=" + planeta;
 
-  // Realiza la solicitud fetch con la URL actualizada.
-  fetch(url)
-    .then((response) => response.json())
-    .then((json) => {
-      console.log(json);
-    });
-});
-function mostrarPopup(contenidoHTML) {
-  // Crea un elemento div para el popup
-  const popup = document.createElement("div");
-  popup.className = "popup";
 
-  // Agrega el contenido HTML al popup
-  popup.innerHTML = contenidoHTML;
-
-  // Agrega el popup al cuerpo del documento
-  document.body.appendChild(popup);
-
-  // Agrega un evento de clic al popup para cerrarlo al hacer clic en cualquier parte del mismo
-  popup.addEventListener("click", function () {
-      cerrarPopup(popup);
-  });
+function getApi(url) {
+    fetch(url)
+        .then(res => res.json())
+        .then(jsonDelBack => {
+            console.log(jsonDelBack);
+            showInfo(jsonDelBack);
+        })
 }
 
-function cerrarPopup(popup) {
-  // Elimina el popup del DOM
-  document.body.removeChild(popup);
+const container = document.getElementById("container");
+const descripcion = document.getElementsByClassName("descripcion");
+const nombrePlaneta = document.getElementsByClassName("titulo");
+
+function cerrarDivTitulo(){
+    container.remove();
 }
 
-// Ejemplo de uso:
-const contenidoHTML = `
-  <div class="popup-content">
-      <p>Este es un mensaje en el popup.</p>
-      <button onclick="cerrarPopup(this.parentElement.parentElement)">Cerrar</button>
-  </div>
-`;
+function showInfo(json) {
+    const nuevoDiv = document.createElement('div');
+    container.innerHTML = ``;
+    nuevoDiv.classList.add('container');
+    const nombre = json.name;
+    const distancia = json.distanceFromSun;
+    const descripcion = json.description;
+    const lunas = json.numberOfMoons;
+    const nombreSignificado = json.namesake;
+    
+    nuevoDiv.innerHTML = `
+    
+    <button class="cerrar" onclick="cerrarDivTitulo()">&#10006;</button>
+    <div class="titulo">
+    ${nombre}
+    
+    </div>
+    <div class="descripcion">
+    Distancia del Sol: ${distancia}.<br>
+    <br>
+    Descripcion: ${descripcion}<br>
+    <br>
+    Numero de lunas: ${lunas}.<br>
+    <br>
+    Significado del nombre: ${nombreSignificado}.<br>
+    </div>`;
+    
+    container.appendChild(nuevoDiv);
+}
 
-// Llama a la función mostrarPopup con el contenido HTML que deseas mostrar en el popup
-mostrarPopup(contenidoHTML);
+getApi(apiUrl);
