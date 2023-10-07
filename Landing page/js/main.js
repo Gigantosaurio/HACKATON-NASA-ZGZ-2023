@@ -19,3 +19,35 @@ selectPlaneta.addEventListener("change", function () {
       console.log(json);
     });
 });
+function mostrarPopup(contenidoHTML) {
+  // Crea un elemento div para el popup
+  const popup = document.createElement("div");
+  popup.className = "popup";
+
+  // Agrega el contenido HTML al popup
+  popup.innerHTML = contenidoHTML;
+
+  // Agrega el popup al cuerpo del documento
+  document.body.appendChild(popup);
+
+  // Agrega un evento de clic al popup para cerrarlo al hacer clic en cualquier parte del mismo
+  popup.addEventListener("click", function () {
+      cerrarPopup(popup);
+  });
+}
+
+function cerrarPopup(popup) {
+  // Elimina el popup del DOM
+  document.body.removeChild(popup);
+}
+
+// Ejemplo de uso:
+const contenidoHTML = `
+  <div class="popup-content">
+      <p>Este es un mensaje en el popup.</p>
+      <button onclick="cerrarPopup(this.parentElement.parentElement)">Cerrar</button>
+  </div>
+`;
+
+// Llama a la función mostrarPopup con el contenido HTML que deseas mostrar en el popup
+mostrarPopup(contenidoHTML);
