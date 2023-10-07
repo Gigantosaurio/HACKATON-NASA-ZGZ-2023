@@ -1,8 +1,17 @@
 body {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     background: linear-gradient(90deg, #000 20.73%, #4C0909 100.6%);
 }
 
+#container{
+    background-color: aliceblue;
+    height: 97vh;
+    width: 30vw;
+    border-radius: 20px;
+}
 
+.titulo{
+
+}
